@@ -1,0 +1,82 @@
+{
+  "global_title": "Resumen de KPI's",
+  "global_subtitle": "466,360 Refrigeradores totales",
+  "dashboard_plan": [
+    {
+      "widget_id": "kpi_cobertura",
+      "component_type": "statCard",
+      "layout": { "span": 4 },
+      "title": "Cobertura",
+      "description": "Enfriadores leídos los últimos 90 días.",
+      "data": [{ "value": "64.9%", "trend": "down" }],
+      "details_data": [
+        { "Regiones": "Bajio", "-1 semana": "68.5%", "Actual": "68.9%", "trend": "up" },
+        { "Regiones": "Centro - Pacífico", "-1 semana": "64.2%", "Actual": "64.6%", "trend": "up" },
+        { "Regiones": "Golfo", "-1 semana": "59.0%", "Actual": "59.2%", "trend": "down" }
+      ]
+    },
+    {
+      "widget_id": "kpi_coincidencia",
+      "component_type": "statCard",
+      "layout": { "span": 4 },
+      "title": "Coincidencia",
+      "description": "Enfriadores leídos los últimos 90 días.",
+      "data": [{ "value": "86%", "trend": "up" }],
+      "details_data": [
+        { "Regiones": "Bajio", "-1 semana": "84.1%", "Actual": "84.0%", "trend": "down" },
+        { "Regiones": "Centro - Pacífico", "-1 semana": "90.7%", "Actual": "90.6%", "trend": "down" }
+      ]
+    },
+    {
+      "widget_id": "kpi_frecuencia",
+      "component_type": "statCard",
+      "layout": { "span": 4 },
+      "title": "Frecuencia",
+      "description": "Enfriadores leídos los últimos 90 días.",
+      "data": [{ "value": "52%", "trend": "down" }],
+      "details_data": [
+        { "Regiones": "Bajio", "-1 semana": "62.1%", "Actual": "62.3%", "trend": "up" },
+        { "Regiones": "Centro - Pacífico", "-1 semana": "39.0%", "Actual": "39.4%", "trend": "up" }
+      ]
+    },
+    {
+      "widget_id": "geo_table",
+      "component_type": "table",
+      "layout": { "span": 5 },
+      "title": "Resumen por geografía",
+      "data": [
+        { "Región": "Bajio", "Cobertura": "69%", "Coincidencia": "84%", "Frecuencia": "62%" },
+        { "Región": "Centro - Pacífico", "Cobertura": "65%", "Coincidencia": "90%", "Frecuencia": "40%" },
+        { "Región": "Golfo", "Cobertura": "59%", "Coincidencia": "78%", "Frecuencia": "41%" },
+        { "Región": "Monarca", "Cobertura": "66%", "Coincidencia": "89%", "Frecuencia": "61%" },
+        { "Región": "Sureste", "Cobertura": "49%", "Coincidencia": "69%", "Frecuencia": "34%" },
+        { "Región": "Valle de México Oriente", "Cobertura": "72%", "Coincidencia": "88%", "Frecuencia": "57%" },
+        { "Región": "Valle de México Poniente", "Cobertura": "74%", "Coincidencia": "90%", "Frecuencia": "52%" }
+      ]
+    },
+    {
+      "widget_id": "weekly_chart",
+      "component_type": "area",
+      "layout": { "span": 7 },
+      "title": "Monitoreo semanal",
+      "dataKey": "semana",
+      "series": [
+        { "name": "Parque", "color": "gray.7" },
+        { "name": "Cobertura", "color": "blue.6" },
+        { "name": "Coincidencia", "color": "red.6" },
+        { "name": "Frecuencia", "color": "teal.6" }
+      ],
+      "data": [
+        { "semana": "08/18", "Parque": 450000, "Cobertura": 0, "Coincidencia": 0, "Frecuencia": 0 },
+        { "semana": "09/01", "Parque": 455000, "Cobertura": 0, "Coincidencia": 0, "Frecuencia": 0 },
+        { "semana": "09/15", "Parque": 460000, "Cobertura": 0, "Coincidencia": 0, "Frecuencia": 0 },
+        { "semana": "09/29", "Parque": 465000, "Cobertura": 0, "Coincidencia": 0, "Frecuencia": 0 },
+        { "semana": "10/13", "Parque": 470000, "Cobertura": 0, "Coincidencia": 0, "Frecuencia": 0 },
+        { "semana": "10/20", "Parque": 475000, "Cobertura": 0, "Coincidencia": 0, "Frecuencia": 0 },
+        { "semana": "10/27", "Parque": 480000, "Cobertura": 0, "Coincidencia": 0, "Frecuencia": 0 },
+        { "semana": "11/03", "Parque": 485000, "Cobertura": 300000, "Coincidencia": 250000, "Frecuencia": 150000 },
+        { "semana": "11/10", "Parque": 490000, "Cobertura": 310000, "Coincidencia": 220000, "Frecuencia": 160000 }
+      ]
+    }
+  ]
+}
