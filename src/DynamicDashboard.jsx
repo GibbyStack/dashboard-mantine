@@ -1,97 +1,74 @@
 import { useState, useEffect } from 'react';
 import { Grid, Card, Title, Text, LoadingOverlay, Container } from '@mantine/core';
 import { DashboardWidget } from './DashboardWidget';
-
-// Importamos el JSON de prueba.
-// En un caso real, harías fetch a tu API de Python.
 import dashboardMockData from './dashboard_data.json';
-
-// Simula una llamada a la API
-const fetchDashboardData = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(dashboardMockData);
-    }, 1000); // Simula 1 segundo de carga
-  });
-};
-
 
 export function DynamicDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [dashboardData, setDashboardData] = useState(null);
+  const [isPrintMode, setIsPrintMode] = useState(false);
 
-  // Este useEffect es el ÚNICO lugar donde se hace un fetch.
-  // Carga el plan completo del dashboard.
   useEffect(() => {
     (async () => {
       try {
         setLoading(true);
         setError(null);
         
-        // EN PRODUCCIÓN:
-        // const response = await fetch('/api/v1/generate_dashboard_from_text', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify({ query: "Resumen de KOF" })
-        // });
-        // const data = await response.json();
+        // 1. Buscamos el ID en la URL del navegador
+        const params = new URLSearchParams(window.location.search);
+        const reportId = params.get('report_id');
         
-        // PARA PRUEBAS (usando el JSON importado):
-        const data = await fetchDashboardData();
+        const printParam = params.get('print_mode');
+        if (printParam === 'true') {
+            setIsPrintMode(true);
+        }
 
-        setDashboardData(data);
+        if (!reportId) {
+            // OPCIONAL: Si no hay ID, puedes cargar un JSON local de prueba
+            setDashboardData(dashboardMockData);
+            // throw new Error("No se proporcionó un 'report_id' en la URL.");
+        }
+        else {
+
+          // 2. Llamamos a tu Backend Python
+          // Asegúrate de que el puerto 8000 sea donde corre tu FastAPI
+          const response = await fetch(`https://solkosintelligence-testing-545989770214.us-central1.run.app/api/reports/${reportId}`);
+
+          if (!response.ok) {
+              throw new Error(`Error del servidor: ${response.statusText}`);
+          }
+
+          const data = await response.json();
+          setDashboardData(data);
+        }
+
       } catch (err) {
         setError(err.message);
       } finally {
         setLoading(false);
       }
     })();
-  }, []); // El array vacío [] asegura que esto se ejecute solo una vez.
+  }, []);
 
+  if (loading) return <LoadingOverlay visible />;
+  if (error) return <Container my="xl"><Text c="red" size="lg">⚠️ {error}</Text></Container>;
+  if (!dashboardData) return <Container><Text>No hay datos.</Text></Container>;
 
-  // Renderizado condicional
-  if (loading) {
-    return <LoadingOverlay visible zIndex={1000} overlayProps={{ radius: 'sm', blur: 2 }} />;
-  }
-
-  if (error) {
-    return <Container><Text color="red">Error al cargar el dashboard: {error}</Text></Container>;
-  }
-
-  if (!dashboardData) {
-    return <Container><Text>No hay datos para el dashboard.</Text></Container>;
-  }
-
-  // Renderizado del Dashboard
   return (
     <Container fluid my="xl">
-      {/* Títulos globales que vienen del JSON */}
       <Title order={1}>{dashboardData.global_title}</Title>
       <Text c="dimmed" mb="xl">{dashboardData.global_subtitle}</Text>
       
-      {/* Renderizado de los widgets */}
       <Grid>
-        {dashboardData.dashboard_plan.map((widgetConfig) => (
+        {dashboardData.dashboard_plan.map((widgetConfig, idx) => (
           <Grid.Col 
-            key={widgetConfig.widget_id} 
-            span={{ 
-              base: 12, // Ocupa 12 columnas en móvil
-              md: widgetConfig.layout.span // Ocupa el 'span' del JSON en pantallas medianas
-            }}
+            key={idx} 
+            span={{ base: 12, md: widgetConfig.layout.span }}
           >
             <Card withBorder radius="md" p="md" shadow="sm">
-              
-              {/* El título del widget (tarjeta) ahora también viene del JSON */}
-              <Title order={5} mb="md">
-                {widgetConfig.title}
-              </Title>
-              
-              {/* Pasamos la configuración del widget (incluyendo los datos) 
-                al componente "tonto".
-              */}
-              <DashboardWidget config={widgetConfig} />
-              
+              <Title order={5} mb="md">{widgetConfig.title}</Title>
+              <DashboardWidget config={widgetConfig} isPrintMode={isPrintMode} />
             </Card>
           </Grid.Col>
         ))}
