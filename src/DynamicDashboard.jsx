@@ -8,6 +8,7 @@ export function DynamicDashboard() {
   const [error, setError] = useState(null);
   const [dashboardData, setDashboardData] = useState(null);
   const [isPrintMode, setIsPrintMode] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
   useEffect(() => {
     (async () => {
@@ -33,7 +34,7 @@ export function DynamicDashboard() {
 
           // 2. Llamamos a tu Backend Python
           // Asegúrate de que el puerto 8000 sea donde corre tu FastAPI
-          const response = await fetch(`https://solkosintelligence-testing-545989770214.us-central1.run.app/api/reports/${reportId}`);
+          const response = await fetch(`${API_URL}/api/reports/${reportId}`);
 
           if (!response.ok) {
               throw new Error(`Error del servidor: ${response.statusText}`);
