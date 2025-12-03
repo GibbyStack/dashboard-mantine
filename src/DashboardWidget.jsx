@@ -28,7 +28,7 @@ function TrendIcon({ trend }) {
 }
 
 /* --- Sub-componente: KPI Stat Card --- */
-function KpiStatCard({ title, description, data, details_data, defaultOpen }) {
+function KpiStatCard({ title, description, data, details_data, details_columns, defaultOpen }) {
   const [showDetails, setShowDetails] = useState(defaultOpen || false);
   const hasDetails = details_data && details_data.length > 0;
 
@@ -40,11 +40,13 @@ function KpiStatCard({ title, description, data, details_data, defaultOpen }) {
   const badgeColor = jsonColor || (isUp ? 'teal' : 'red');
   const Icon = isUp ? IconArrowUpRight : IconArrowDownRight;
 
-  const detailsHeaders = hasDetails ? Object.keys(details_data[0]) : [];
+  const headers = (details_columns && details_columns.length > 0) 
+    ? details_columns 
+    : (hasDetails ? Object.keys(details_data[0]) : []);
   
   const detailsRows = hasDetails ? details_data.map((row, index) => (
     <Table.Tr key={index}>
-      {detailsHeaders.map((header) => (
+      {headers.map((header) => (
         <Table.Td key={header}>
           {(header === 'trend' || header === 'Tendencia') 
             ? <TrendIcon trend={row[header]} /> 
@@ -78,7 +80,7 @@ function KpiStatCard({ title, description, data, details_data, defaultOpen }) {
             <Table fz="xs" verticalSpacing="xs" striped withTableBorder>
               <Table.Thead>
                 <Table.Tr>
-                  {detailsHeaders.map((h) => <Table.Th key={h} tt="capitalize">{h}</Table.Th>)}
+                  {headers.map((h) => <Table.Th key={h} tt="capitalize">{h}</Table.Th>)}
                 </Table.Tr>
               </Table.Thead>
               <Table.Tbody>{detailsRows}</Table.Tbody>
@@ -91,9 +93,13 @@ function KpiStatCard({ title, description, data, details_data, defaultOpen }) {
 }
 
 /* --- Sub-componente: Tabla Genérica --- */
-function KpiTable({ data }) {
+function KpiTable({ data, columns }) {
   if (!data || data.length === 0) return <Text>Sin datos</Text>;
-  const headers = Object.keys(data[0]);
+  
+  const headers = (columns && columns.length > 0) 
+    ? columns 
+    : Object.keys(data[0]);
+
   return (
     <Table striped withTableBorder withColumnBorders>
       <Table.Thead>
@@ -101,7 +107,9 @@ function KpiTable({ data }) {
       </Table.Thead>
       <Table.Tbody>
         {data.map((row, i) => (
-          <Table.Tr key={i}>{headers.map(h => <Table.Td key={h}>{row[h]}</Table.Td>)}</Table.Tr>
+          <Table.Tr key={i}>
+            {headers.map(h => <Table.Td key={h}>{row[h]}</Table.Td>)}
+          </Table.Tr>
         ))}
       </Table.Tbody>
     </Table>
@@ -110,7 +118,7 @@ function KpiTable({ data }) {
 
 /* --- WIDGET PRINCIPAL --- */
 export function DashboardWidget({ config, isPrintMode }) {
-  const { component_type, data, dataKey, series, details_data, title, description } = config;
+  const { component_type, data, dataKey, series, details_data, details_columns, columns, title, description } = config;
 
   if (config.error) {
     return <Alert icon={<IconAlertCircle size="1rem" />} title="Error" color="red">{config.error}</Alert>;
@@ -118,10 +126,10 @@ export function DashboardWidget({ config, isPrintMode }) {
 
   switch (component_type) {
     case 'statCard':
-      return <KpiStatCard title={title} description={description} data={data} details_data={details_data} defaultOpen={isPrintMode} />;
+      return <KpiStatCard title={title} description={description} data={data} details_data={details_data} details_columns={details_columns} defaultOpen={isPrintMode} />;
     
     case 'table':
-      return <KpiTable data={data} />;
+      return <KpiTable data={data} columns={columns} />;
 
     case 'donut':
       // Mapeo Estándar: Asegurar que haya 'color'

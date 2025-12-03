@@ -1,355 +1,360 @@
 {
-  "global_title": "Resumen de KPI's",
-  "global_subtitle": "466,360 Refrigeradores totales",
-  "dashboard_plan": [
-    {
-      "widget_id": "kpi_cobertura",
-      "component_type": "statCard",
-      "layout": {
-        "span": 4
-      },
-      "title": "Cobertura",
-      "description": "Enfriadores leídos los últimos 90 días.",
-      "data": [
+    "global_title": "Reporte Operativo para KOF",
+    "dashboard_plan": [
         {
-          "value": 64.3,
-          "trend": "up"
+            "data": [
+                {
+                    "trend": "up",
+                    "value": 62.7
+                }
+            ],
+            "title": "Cobertura",
+            "layout": {
+                "span": 4
+            },
+            "description": "Porcentaje de equipos con cobertura sobre el total del parque.",
+            "details_columns": ["Regiones", "-1 semana", "Actual", "trend"],
+            "details_data": [
+                {
+                    "trend": "up",
+                    "Actual": 67.7,
+                    "Regiones": "Bajío",
+                    "-1 semana": 67.4
+                },
+                {
+                    "trend": "up",
+                    "Actual": 59.1,
+                    "Regiones": "Centro -Pacífico",
+                    "-1 semana": 58.8
+                },
+                {
+                    "trend": "up",
+                    "Actual": 57.4,
+                    "Regiones": "Golfo",
+                    "-1 semana": 57.1
+                },
+                {
+                    "trend": "up",
+                    "Actual": 66.1,
+                    "Regiones": "Monarca",
+                    "-1 semana": 65.9
+                },
+                {
+                    "trend": "up",
+                    "Actual": 45.8,
+                    "Regiones": "Sureste",
+                    "-1 semana": 45.4
+                },
+                {
+                    "trend": "up",
+                    "Actual": 69.2,
+                    "Regiones": "Valle de México Oriente",
+                    "-1 semana": 68.8
+                },
+                {
+                    "trend": "up",
+                    "Actual": 71.8,
+                    "Regiones": "Valle de México Poniente",
+                    "-1 semana": 71.5
+                }
+            ],
+            "component_type": "statCard"
+        },
+        {
+            "data": [
+                {
+                    "trend": "up",
+                    "value": 53.8
+                }
+            ],
+            "title": "Frecuencia",
+            "layout": {
+                "span": 4
+            },
+            "description": "KPI de Frecuencia actual para el cliente KOF, con desglose por región.",
+            "details_columns": ["Regiones", "-1 semana", "Actual", "trend"],
+            "details_data": [
+                {
+                    "trend": "up",
+                    "Actual": 63.7,
+                    "Regiones": "Bajío",
+                    "-1 semana": 63.6
+                },
+                {
+                    "trend": "up",
+                    "Actual": 42.4,
+                    "Regiones": "Centro -Pacífico",
+                    "-1 semana": 42
+                },
+                {
+                    "trend": "up",
+                    "Actual": 44.7,
+                    "Regiones": "Golfo",
+                    "-1 semana": 44.5
+                },
+                {
+                    "trend": "up",
+                    "Actual": 62.1,
+                    "Regiones": "Monarca",
+                    "-1 semana": 61.9
+                },
+                {
+                    "trend": "up",
+                    "Actual": 42.8,
+                    "Regiones": "Sureste",
+                    "-1 semana": 42.4
+                },
+                {
+                    "trend": "up",
+                    "Actual": 57.6,
+                    "Regiones": "Valle de México Oriente",
+                    "-1 semana": 57.3
+                },
+                {
+                    "trend": "up",
+                    "Actual": 55.2,
+                    "Regiones": "Valle de México Poniente",
+                    "-1 semana": 55
+                }
+            ],
+            "component_type": "statCard"
+        },
+        {
+            "data": [
+                {
+                    "trend": "up",
+                    "value": 88
+                }
+            ],
+            "title": "Coincidencia",
+            "layout": {
+                "span": 4
+            },
+            "description": "Porcentaje de equipos con ubicación validada sobre el total de equipos con cobertura.",
+            "details_columns": ["Regiones", "-1 semana", "Actual", "trend"],
+            "details_data": [
+                {
+                    "trend": "down",
+                    "Actual": 84.3,
+                    "Regiones": "Bajío",
+                    "-1 semana": 84.3
+                },
+                {
+                    "trend": "down",
+                    "Actual": 90,
+                    "Regiones": "Centro -Pacífico",
+                    "-1 semana": 90.1
+                },
+                {
+                    "trend": "down",
+                    "Actual": 86.9,
+                    "Regiones": "Golfo",
+                    "-1 semana": 86.9
+                },
+                {
+                    "trend": "down",
+                    "Actual": 89.1,
+                    "Regiones": "Monarca",
+                    "-1 semana": 89.2
+                },
+                {
+                    "trend": "down",
+                    "Actual": 84.5,
+                    "Regiones": "Sureste",
+                    "-1 semana": 84.6
+                },
+                {
+                    "trend": "down",
+                    "Actual": 89.1,
+                    "Regiones": "Valle de México Oriente",
+                    "-1 semana": 89.1
+                },
+                {
+                    "trend": "down",
+                    "Actual": 91.1,
+                    "Regiones": "Valle de México Poniente",
+                    "-1 semana": 91.1
+                }
+            ],
+            "component_type": "statCard"
+        },
+        {
+            "data": [
+                {
+                    "Región": "Bajío",
+                    "Cobertura": 67.7,
+                    "Frecuencia": 63.7,
+                    "Coincidencia": 84.3
+                },
+                {
+                    "Región": "Centro -Pacífico",
+                    "Cobertura": 59.1,
+                    "Frecuencia": 42.4,
+                    "Coincidencia": 90
+                },
+                {
+                    "Región": "Golfo",
+                    "Cobertura": 57.4,
+                    "Frecuencia": 44.7,
+                    "Coincidencia": 86.9
+                },
+                {
+                    "Región": "Monarca",
+                    "Cobertura": 66.1,
+                    "Frecuencia": 62.1,
+                    "Coincidencia": 89.1
+                },
+                {
+                    "Región": "Sureste",
+                    "Cobertura": 45.8,
+                    "Frecuencia": 42.8,
+                    "Coincidencia": 84.5
+                },
+                {
+                    "Región": "Valle de México Oriente",
+                    "Cobertura": 69.2,
+                    "Frecuencia": 57.6,
+                    "Coincidencia": 89.1
+                },
+                {
+                    "Región": "Valle de México Poniente",
+                    "Cobertura": 71.8,
+                    "Frecuencia": 55.2,
+                    "Coincidencia": 91.1
+                }
+            ],
+            "title": "Resumen Geográfico por Región",
+            "layout": {
+                "span": 5
+            },
+            "columns": ["Región", "Cobertura", "Frecuencia", "Coincidencia"],
+            "description": "KPIs consolidados de Cobertura, Coincidencia y Frecuencia para KOF, agrupados por región.",
+            "component_type": "table"
+        },
+        {
+            "data": [
+                {
+                    "Parque": 464410,
+                    "semana": "2025-09-08",
+                    "Cobertura": 465,
+                    "Frecuencia": 454,
+                    "Coincidencia": 427
+                },
+                {
+                    "Parque": 466490,
+                    "semana": "2025-09-15",
+                    "Cobertura": 466,
+                    "Frecuencia": 455,
+                    "Coincidencia": 427
+                },
+                {
+                    "Parque": 474756,
+                    "semana": "2025-09-22",
+                    "Cobertura": 469,
+                    "Frecuencia": 458,
+                    "Coincidencia": 430
+                },
+                {
+                    "Parque": 477682,
+                    "semana": "2025-09-29",
+                    "Cobertura": 471,
+                    "Frecuencia": 460,
+                    "Coincidencia": 432
+                },
+                {
+                    "Parque": 479416,
+                    "semana": "2025-10-06",
+                    "Cobertura": 477,
+                    "Frecuencia": 464,
+                    "Coincidencia": 438
+                },
+                {
+                    "Parque": 480656,
+                    "semana": "2025-10-13",
+                    "Cobertura": 493,
+                    "Frecuencia": 479,
+                    "Coincidencia": 454
+                },
+                {
+                    "Parque": 482346,
+                    "semana": "2025-10-20",
+                    "Cobertura": 500,
+                    "Frecuencia": 486,
+                    "Coincidencia": 461
+                },
+                {
+                    "Parque": 482945,
+                    "semana": "2025-10-27",
+                    "Cobertura": 1793,
+                    "Frecuencia": 1485,
+                    "Coincidencia": 1640
+                },
+                {
+                    "Parque": 483111,
+                    "semana": "2025-11-03",
+                    "Cobertura": 288327,
+                    "Frecuencia": 154521,
+                    "Coincidencia": 255331
+                },
+                {
+                    "Parque": 483113,
+                    "semana": "2025-11-10",
+                    "Cobertura": 292467,
+                    "Frecuencia": 155902,
+                    "Coincidencia": 258562
+                },
+                {
+                    "Parque": null,
+                    "semana": "2025-11-17",
+                    "Cobertura": 296770,
+                    "Frecuencia": 157436,
+                    "Coincidencia": 261964
+                },
+                {
+                    "Parque": null,
+                    "semana": "2025-11-24",
+                    "Cobertura": 301132,
+                    "Frecuencia": 161187,
+                    "Coincidencia": 265287
+                },
+                {
+                    "Parque": null,
+                    "semana": "2025-12-01",
+                    "Cobertura": 302681,
+                    "Frecuencia": 162736,
+                    "Coincidencia": 266450
+                }
+            ],
+            "title": "Evolución Semanal de KPIs",
+            "layout": {
+                "span": 7
+            },
+            "series": [
+                {
+                    "name": "Cobertura",
+                    "color": "blue",
+                    "label": "Cobertura"
+                },
+                {
+                    "name": "Frecuencia",
+                    "color": "green",
+                    "label": "Frecuencia"
+                },
+                {
+                    "name": "Coincidencia",
+                    "color": "orange",
+                    "label": "Coincidencia"
+                },
+                {
+                    "name": "Parque",
+                    "color": "gray",
+                    "label": "Parque"
+                }
+            ],
+            "dataKey": "semana",
+            "description": "Evolución histórica de Cobertura, Frecuencia, Coincidencia y Parque de Activos para KOF (Últimos 3 meses).",
+            "component_type": "line"
         }
-      ],
-      "details_data": [
-        {
-          "Regiones": "Bajío",
-          "-1 semana": 68.6,
-          "Actual": 68.9,
-          "trend": "up"
-        },
-        {
-          "Regiones": "Centro -Pacífico",
-          "-1 semana": 62.5,
-          "Actual": 62.7,
-          "trend": "up"
-        },
-        {
-          "Regiones": "Golfo",
-          "-1 semana": 58.8,
-          "Actual": 59.2,
-          "trend": "up"
-        },
-        {
-          "Regiones": "Monarca",
-          "-1 semana": 67.3,
-          "Actual": 67.5,
-          "trend": "up"
-        },
-        {
-          "Regiones": "Sureste",
-          "-1 semana": 46.3,
-          "Actual": 46.7,
-          "trend": "up"
-        },
-        {
-          "Regiones": "Valle de México Oriente",
-          "-1 semana": 70.0,
-          "Actual": 70.4,
-          "trend": "up"
-        },
-        {
-          "Regiones": "Valle de México Poniente",
-          "-1 semana": 72.9,
-          "Actual": 73.3,
-          "trend": "up"
-        }
-      ]
-    },
-    {
-      "widget_id": "kpi_coincidencia",
-      "component_type": "statCard",
-      "layout": {
-        "span": 4
-      },
-      "title": "Coincidencia",
-      "description": "Enfriadores leídos los últimos 90 días.",
-      "data": [
-        {
-          "value": 86.0,
-          "trend": "up"
-        }
-      ],
-      "details_data": [
-        {
-          "Regiones": "Bajío",
-          "-1 semana": 83.9,
-          "Actual": 83.8,
-          "trend": "down"
-        },
-        {
-          "Regiones": "Centro -Pacífico",
-          "-1 semana": 90.8,
-          "Actual": 90.7,
-          "trend": "down"
-        },
-        {
-          "Regiones": "Golfo",
-          "-1 semana": 81.0,
-          "Actual": 80.7,
-          "trend": "down"
-        },
-        {
-          "Regiones": "Monarca",
-          "-1 semana": 89.2,
-          "Actual": 89.1,
-          "trend": "down"
-        },
-        {
-          "Regiones": "Sureste",
-          "-1 semana": 70.8,
-          "Actual": 70.5,
-          "trend": "down"
-        },
-        {
-          "Regiones": "Valle de México Oriente",
-          "-1 semana": 89.1,
-          "Actual": 89.0,
-          "trend": "down"
-        },
-        {
-          "Regiones": "Valle de México Poniente",
-          "-1 semana": 91.5,
-          "Actual": 91.4,
-          "trend": "down"
-        }
-      ]
-    },
-    {
-      "widget_id": "kpi_frecuencia",
-      "component_type": "statCard",
-      "layout": {
-        "span": 4
-      },
-      "title": "Frecuencia",
-      "description": "Enfriadores leídos los últimos 90 días.",
-      "data": [
-        {
-          "value": 52.7,
-          "trend": "up"
-        }
-      ],
-      "details_data": [
-        {
-          "Regiones": "Bajío",
-          "-1 semana": 62.9,
-          "Actual": 63.0,
-          "trend": "up"
-        },
-        {
-          "Regiones": "Centro -Pacífico",
-          "-1 semana": 39.6,
-          "Actual": 39.9,
-          "trend": "up"
-        },
-        {
-          "Regiones": "Golfo",
-          "-1 semana": 42.5,
-          "Actual": 42.8,
-          "trend": "up"
-        },
-        {
-          "Regiones": "Monarca",
-          "-1 semana": 61.9,
-          "Actual": 62.1,
-          "trend": "up"
-        },
-        {
-          "Regiones": "Sureste",
-          "-1 semana": 37.2,
-          "Actual": 37.8,
-          "trend": "up"
-        },
-        {
-          "Regiones": "Valle de México Oriente",
-          "-1 semana": 58.6,
-          "Actual": 58.8,
-          "trend": "up"
-        },
-        {
-          "Regiones": "Valle de México Poniente",
-          "-1 semana": 54.8,
-          "Actual": 55.0,
-          "trend": "up"
-        }
-      ]
-    },
-    {
-      "widget_id": "geo_table",
-      "component_type": "table",
-      "layout": {
-        "span": 5
-      },
-      "title": "Resumen por geografía",
-      "data": [
-        {
-          "Región": "Bajío",
-          "Cobertura": 68.9,
-          "Coincidencia": 83.8,
-          "Frecuencia": 63.0
-        },
-        {
-          "Región": "Centro -Pacífico",
-          "Cobertura": 62.7,
-          "Coincidencia": 90.7,
-          "Frecuencia": 39.9
-        },
-        {
-          "Región": "Golfo",
-          "Cobertura": 59.2,
-          "Coincidencia": 80.7,
-          "Frecuencia": 42.8
-        },
-        {
-          "Región": "Monarca",
-          "Cobertura": 67.5,
-          "Coincidencia": 89.1,
-          "Frecuencia": 62.1
-        },
-        {
-          "Región": "Sureste",
-          "Cobertura": 46.7,
-          "Coincidencia": 70.5,
-          "Frecuencia": 37.8
-        },
-        {
-          "Región": "Valle de México Oriente",
-          "Cobertura": 70.4,
-          "Coincidencia": 89.0,
-          "Frecuencia": 58.8
-        },
-        {
-          "Región": "Valle de México Poniente",
-          "Cobertura": 73.3,
-          "Coincidencia": 91.4,
-          "Frecuencia": 55.0
-        }
-      ]
-    },
-    {
-      "widget_id": "weekly_chart",
-      "component_type": "area",
-      "layout": {
-        "span": 7
-      },
-      "title": "Monitoreo semanal",
-      "dataKey": "semana",
-      "series": [
-        {
-          "name": "Parque",
-          "color": "gray.7"
-        },
-        {
-          "name": "Cobertura",
-          "color": "blue.6"
-        },
-        {
-          "name": "Coincidencia",
-          "color": "red.6"
-        },
-        {
-          "name": "Frecuencia",
-          "color": "teal.6"
-        }
-      ],
-      "data": [
-        {
-          "semana": "2025-08-25",
-          "Cobertura": 452.0,
-          "Frecuencia": 443.0,
-          "Coincidencia": 419.0,
-          "Parque": 447645.0
-        },
-        {
-          "semana": "2025-09-01",
-          "Cobertura": 457.0,
-          "Frecuencia": 448.0,
-          "Coincidencia": 424.0,
-          "Parque": 450934.0
-        },
-        {
-          "semana": "2025-09-08",
-          "Cobertura": 461.0,
-          "Frecuencia": 452.0,
-          "Coincidencia": 427.0,
-          "Parque": 454812.0
-        },
-        {
-          "semana": "2025-09-15",
-          "Cobertura": 462.0,
-          "Frecuencia": 453.0,
-          "Coincidencia": 427.0,
-          "Parque": 456733.0
-        },
-        {
-          "semana": "2025-09-22",
-          "Cobertura": 465.0,
-          "Frecuencia": 456.0,
-          "Coincidencia": 430.0,
-          "Parque": 463303.0
-        },
-        {
-          "semana": "2025-09-29",
-          "Cobertura": 467.0,
-          "Frecuencia": 458.0,
-          "Coincidencia": 432.0,
-          "Parque": 465162.0
-        },
-        {
-          "semana": "2025-10-06",
-          "Cobertura": 473.0,
-          "Frecuencia": 464.0,
-          "Coincidencia": 437.0,
-          "Parque": 465984.0
-        },
-        {
-          "semana": "2025-10-13",
-          "Cobertura": 489.0,
-          "Frecuencia": 479.0,
-          "Coincidencia": 453.0,
-          "Parque": 466127.0
-        },
-        {
-          "semana": "2025-10-20",
-          "Cobertura": 496.0,
-          "Frecuencia": 486.0,
-          "Coincidencia": 460.0,
-          "Parque": 466221.0
-        },
-        {
-          "semana": "2025-10-27",
-          "Cobertura": 1777.0,
-          "Frecuencia": 1521.0,
-          "Coincidencia": 1619.0,
-          "Parque": 466279.0
-        },
-        {
-          "semana": "2025-11-03",
-          "Cobertura": 294652.0,
-          "Frecuencia": 153096.0,
-          "Coincidencia": 254437.0,
-          "Parque": 466359.0
-        },
-        {
-          "semana": "2025-11-10",
-          "Cobertura": 298477.0,
-          "Frecuencia": 156423.0,
-          "Coincidencia": 256897.0,
-          "Parque": 466360.0
-        },
-        {
-          "semana": "2025-11-17",
-          "Cobertura": 300028.0,
-          "Frecuencia": 157974.0,
-          "Coincidencia": 257891.0,
-          "Parque": null
-        }
-      ]
-    }
-  ]
+    ],
+    "global_subtitle": "483,113 Activos totales de KOF"
 }
