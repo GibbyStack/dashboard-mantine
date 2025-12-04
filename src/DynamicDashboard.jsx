@@ -67,7 +67,7 @@ export function DynamicDashboard() {
             key={idx} 
             span={{ base: 12, md: widgetConfig.layout.span }}
           >
-            <Card withBorder radius="md" p="md" shadow="sm">
+            <Card withBorder radius="md" p="md" shadow={isPrintMode ? "none" : "sm"}>
               <Title order={5} mb="md">{widgetConfig.title}</Title>
               <DashboardWidget config={widgetConfig} isPrintMode={isPrintMode} />
             </Card>

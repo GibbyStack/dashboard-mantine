@@ -67,9 +67,9 @@ button:focus-visible {
   }
 }
 
-@media print {
+/* @media print {
   body {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-}
+} */
